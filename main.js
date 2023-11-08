@@ -1,3 +1,8 @@
+/*
+Moment 3.3 i kursen DT162G
+Lösning skapad av Anders Sundin (olsu2201) HT-23
+*/
+
 //base url
 const url = 'http://localhost:3000/courses';
 
