@@ -44,3 +44,21 @@ button:hover{
     background-color: red;
     cursor: pointer;
 }
+
+.form-container {
+ display: flex;
+ justify-content: center;
+ text-align: center;
+ 
+}
+.form-container label {
+  margin-right: 10px;
+}
+.form-container input {
+  margin-bottom: 10px;
+}
+.form-container button {
+  background-color: green;
+  color: #ccc;
+  border-radius: 3px;
+}
