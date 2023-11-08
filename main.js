@@ -1,11 +1,15 @@
 //base url
 const url = 'http://localhost:3000/courses';
+
+//hämta in input och tabell
 let tableData = document.getElementById('table-data');
 const code = document.getElementById('code');
 const courseName = document.getElementById('name');
 const progression = document.getElementById('progression');
 const term = document.getElementById('term');
 const syllabus = document.getElementById('syllabus');
+
+//funktion för att hämta in alla kurser
 async function fetchData() {
     try {
         const response = await fetch(url);
@@ -15,7 +19,7 @@ async function fetchData() {
         }
 
         const data = await response.json();
-
+        // Skriv till tabell
         let tableHTML = '';
         data.forEach(course => {
             tableHTML += `
@@ -38,7 +42,7 @@ async function fetchData() {
 }
 
 async function deleteCourse(id) {
-    
+
     const deleteURL = `http://localhost:3000/courses/${id}`;
 
     try {
@@ -62,7 +66,9 @@ fetchData();
 
 
 async function addCourse(e) {
+    // förhindra default
     e.preventDefault();
+    // skapa ett objekt med data som skall skickas
     let data = {
         code: code.value,
         name: courseName.value,
@@ -71,6 +77,7 @@ async function addCourse(e) {
         syllabus: syllabus.value
     }
 
+    // Skicka datan som JSON
     try {
         const response = await fetch(url, {
             method: 'POST',
@@ -81,9 +88,9 @@ async function addCourse(e) {
         });
 
         if (response.ok) {
-            // get all courses
+            // Hämta alla kurser på nytt
             fetchData();
-            // empty inputfields
+            // töm inputfält
             code.value = '';
             courseName.value = '';
             progression.value = '';
@@ -98,5 +105,7 @@ async function addCourse(e) {
     }
 
 }
+
+//händelselyssnare för formfältet
 const addCourseForm = document.getElementById('add-course-form');
 addCourseForm.addEventListener('submit', addCourse);

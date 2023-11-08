@@ -47,8 +47,13 @@ button:hover{
 
 .form-container {
  display: flex;
+ max-width: 60%;
+ margin: auto;
  justify-content: center;
  text-align: center;
+
+ padding: 0px 100px 50px;
+ border-radius: 4px;
  
 }
 .form-container label {
@@ -61,4 +66,12 @@ button:hover{
   background-color: green;
   color: #ccc;
   border-radius: 3px;
+  margin-top: 20px;
+}
+.wrapper{
+  padding-top: 20px;
+  background-color: rgb(224, 220, 220);
+}
+#h3{
+  text-align: center;
 }
